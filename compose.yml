@@ -1,0 +1,31 @@
+# compose.yaml
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+#     - HOST:CONTAINER
+      - 3000:3000
+#   environment:
+#     # See https://grafana.com/docs/grafana/latest/setup-grafana/configure-docker/
+#     GF_LOG_LEVEL: debug
+#     GF_PATHS_DATA: /var/lib/grafana
+#     GF_PATHS_HOME: /usr/share/grafana
+#     GF_PATHS_LOGS: /var/log/grafana
+#     GF_PATHS_PLUGINS: /var/lib/grafana/plugins
+#     GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+#     GF_INSTALL_PLUGINS:
+    volumes:
+      # Mount the grafana data that needs to persiste between Docker rebuilds
+      - type: bind
+        source: /mnt/Dockershare/Docker_SDBgrafana/var/lib/grafana
+        target: /var/lib/grafana
+      - type: bind
+        source: /mnt/Dockershare/Docker_SDBgrafana/var/log/grafana
+        target: /var/log/grafana
+      - type: bind
+        source: /mnt/Dockershare/Docker_SDBgrafana/etc/grafana
+        target: /etc/grafana
+#   secrets:
+#   depends_on:
