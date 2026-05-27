@@ -1,7 +1,9 @@
 # compose.yaml
 services:
   grafana:
-    image: grafana/grafana-enterprise
+    #image: grafana/grafana-enterprise:11.6.0
+    image: grafana/grafana-enterprise:12.4
+    #image: grafana/grafana-enterprise
     container_name: grafana
     restart: unless-stopped
     ports:
