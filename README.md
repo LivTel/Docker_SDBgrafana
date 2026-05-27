@@ -22,4 +22,6 @@ For example
 
 More information about how ltvmhost5 was configured to run docker on wiki GrafanaSDB.
 
+# Upgrading
 
+Wiki page about how to upgrade grafana server: UpgradingGrafanaServer
